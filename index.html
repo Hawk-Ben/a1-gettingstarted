@@ -7,20 +7,54 @@
       body {
         font-family: "Trebuchet MS", wingdings;
         margin: 20px;
-        background-color: #f1d194;
+        padding-top: 60px;
+        background-color: #253825;
       }
       h1 {
-        color: #d92938;
+        color: #B4D1B4;
+        position: fixed;
+        top: 10px;
+        left: 20px;
+        right: 20px;
+        transform-origin: top left;
+        animation: rotateOnHinge 6s ease-in 1;
+      }
+      @keyframes colorfade {
+        100%   { color: #B4D1B4; }
+        75%  { color: #879D87; }
+        50%  { color: #657665; }
+        25% { color: #4C594C; }
+        0%   { color: #253825; }
+      }
+      @keyframes rotateOnHinge{
+        0%   { transform: rotate(0deg); }
+        20%  { transform: rotate(30deg); }
+        40%  { transform: rotate(15deg); }
+        60%  { transform: rotate(30deg); }
+        80%  { transform: rotate(15deg); }
+        90%  { transform: translateY(calc(100vh - 100%)) rotate(15deg); opacity: 1; }
+        94%  { transform: translateY(calc(100vh - 100%)) rotate(15deg); opacity: 0; }
+        95%  { transform: translateY(0) rotate(0deg); opacity: 0; }
+        100% { transform: translateY(0) rotate(0deg); opacity: 1; }
       }
       h2 {
-        color: #CC5500;
+        color: #658565;
       }
       ul {
         list-style-type: disc;
-        color: #243a2e;
+        color: #B4D1B4;
       }
       body p {
-        color: #243a2e;
+        color: #B4D1B4;
+      }
+      .typing-character {
+        display: inline-block;
+        opacity: 0;
+        white-space: pre;
+        animation: typeCharacter 0.01s linear forwards;
+      }
+      @keyframes typeCharacter {
+        to { opacity: 1; }
       }
     </style>
   </head>
@@ -69,5 +103,24 @@
       <li>Ontario, a one page coopertition party card game about surviving the wilderness with minimal resources</li>
       <li>Project Bane, in progress</li>
     </ul>
+    <script>
+      const characters = document.querySelectorAll('li');
+      let delay = 6;
+
+      characters.forEach((item) => {
+        const text = item.textContent;
+        item.textContent = '';
+
+        [...text].forEach((character, index) => {
+          const span = document.createElement('span');
+          span.className = 'typing-character';
+          span.textContent = character;
+          span.style.animationDelay = `${delay + index * 0.035}s`;
+          item.appendChild(span);
+        });
+
+        delay += text.length * 0.035 + 0.25;
+      });
+    </script>
   </body>
 </html>
