@@ -3,6 +3,7 @@
   <head>
     <title>CS4241 Assignment 1</title>
     <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <style>
       body {
         font-family: "Trebuchet MS", wingdings;
@@ -38,7 +39,7 @@
         100% { transform: translateY(0) rotate(0deg); opacity: 1; }
       }
       h2 {
-        color: #658565;
+        color: #B4D1B4;
       }
       ul {
         list-style-type: disc;
@@ -56,6 +57,17 @@
       @keyframes typeCharacter {
         to { opacity: 1; }
       }
+      #celebration-gif{
+      display: block;
+      width: 100%;
+      margin: 30px auto;
+      opacity: 0;
+      transform: translateY(-1000px);
+      transition: opacity 1s ease;
+    }
+    #celebration-gif.show {
+      opacity: 1;
+    }
     </style>
   </head>
   <body>
@@ -103,6 +115,10 @@
       <li>Ontario, a one page coopertition party card game about surviving the wilderness with minimal resources</li>
       <li>Project Bane, in progress</li>
     </ul>
+    <img 
+      id="celebration-gif"
+      src = "placidplace-congratulations-7600.gif" 
+      alt=""/>
     <script>
       const characters = document.querySelectorAll('li');
       let delay = 6;
@@ -110,7 +126,6 @@
       characters.forEach((item) => {
         const text = item.textContent;
         item.textContent = '';
-
         [...text].forEach((character, index) => {
           const span = document.createElement('span');
           span.className = 'typing-character';
@@ -121,6 +136,13 @@
 
         delay += text.length * 0.035 + 0.25;
       });
+      const celebrationGif = document.getElementById('celebration-gif');
+      setTimeout(() => {
+        celebrationGif.classList.add('show');
+      }, delay * 1000);
+      setTimeout(() => {
+        celebrationGif.classList.remove('show');
+      }, delay * 1000 + 1800);
     </script>
   </body>
 </html>
