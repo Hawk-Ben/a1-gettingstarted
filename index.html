@@ -39,7 +39,8 @@
         100% { transform: translateY(0) rotate(0deg); opacity: 1; }
       }
       h2 {
-        color: #B4D1B4;
+        color: #856575;
+        background-color: #381f2c;
       }
       ul {
         list-style-type: disc;
@@ -47,6 +48,10 @@
       }
       body p {
         color: #B4D1B4;
+      }
+      .experience-section {
+        background-color: #381f2c;
+        color: #856575;
       }
       .typing-character {
         display: inline-block;
@@ -68,11 +73,18 @@
     #celebration-gif.show {
       opacity: 1;
     }
+    #skills-list {
+      background-color: #381f2c;
+      color: #856575;
+    }
+    #bio-text {
+      color: #658565;
+    }
     </style>
   </head>
   <body>
     <h1>Information about Ben Hawkins, Class of 2028</h1>
-    <p>
+    <p id = "bio-text">
       Computer Science and an Interactive Media and Game Design double major at Worcester Polytechnic Institute
     </p>
     <p>Computer Science courses completed:</p>
@@ -84,41 +96,43 @@
        <li>Human-Computer Interaction CS 3041</li>
     </ul>
 
-    <h2>Experience</h2>
-    <p>Proficient Skills</p>
-    <ul>
-      <li>Java</li>
-      <li>C++</li>
-      <li>C#</li>
-      <li>Python</li>
-      <li>HTML/CSS/JS</li>
-      <li>SQL</li>
-      <li>Git</li>
-      <li>Unity</li>
-      <li>Godot</li>
-      <li>Zbrush</li>
-    </ul>
-    <p>
-      Working experience
-    </p>
-    <ul>
-      <li>IBM/Rational</li>
-      <li>WPI</li>
-      <li>Food and Friends (B term)</li>
-    </ul>
-     <p>
-      Project experience
-    </p>
-    <ul>
-      <li>SpeedGunner, physics based shooter platformer</li>
-      <li>Board Climb Grader, an AI model that determines climbing difficulty of rock climbing routes</li>
-      <li>Ontario, a one page coopertition party card game about surviving the wilderness with minimal resources</li>
-      <li>Project Bane, in progress</li>
-    </ul>
-    <img 
-      id="celebration-gif"
-      src = "placidplace-congratulations-7600.gif" 
-      alt=""/>
+    <div class="experience-section">
+      <h2>Experience</h2>
+      <p id="skills-list">Proficient Skills</p>
+      <ul id="skills-list">
+        <li>Java</li>
+        <li>C++</li>
+        <li>C#</li>
+        <li>Python</li>
+        <li>HTML/CSS/JS</li>
+        <li>SQL</li>
+        <li>Git</li>
+        <li>Unity</li>
+        <li>Godot</li>
+        <li>Zbrush</li>
+      </ul>
+      <p id="skills-list">
+        Working experience
+      </p>
+      <ul id="skills-list">
+        <li>IBM/Rational</li>
+        <li>WPI</li>
+        <li>Food and Friends (B term)</li>
+      </ul>
+       <p id="skills-list">
+        Project experience
+      </p>
+      <ul id="skills-list">
+        <li>SpeedGunner, physics based shooter platformer</li>
+        <li>Board Climb Grader, an AI model that determines climbing difficulty of rock climbing routes</li>
+        <li>Ontario, a one page coopertition party card game about surviving the wilderness with minimal resources</li>
+        <li>Project Bane, in progress</li>
+      </ul>
+      <img 
+        id="celebration-gif"
+        src = "placidplace-congratulations-7600.gif" 
+        alt=""/>
+    </div>
     <script>
       const characters = document.querySelectorAll('li');
       let delay = 6;
